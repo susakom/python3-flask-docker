@@ -9,6 +9,6 @@ script:
 after_success:
   - docker images
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push mandarinsolutions/python3-flask-docker;
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push mandarinsolutions/python3-flask-docker;
     fi
