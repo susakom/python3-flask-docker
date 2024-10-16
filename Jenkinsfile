@@ -3,7 +3,10 @@ pipeline {
     agent { 
         label 'azure-vm' // Метка узла, на котором будет запускаться билд
     }
-     stage('Check Python and pip versions') {
+     
+    
+    stages {
+        stage('Check Python and pip versions') {
             steps {
                 // Проверка версий Python и pip
                 sh '''
@@ -13,7 +16,9 @@ pipeline {
             }
         }
     
-    stages {
+        
+        
+        
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
