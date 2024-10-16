@@ -14,15 +14,11 @@ pipeline {
                 pip --version
                 '''
             }
-        }
-    
-        
-        
-        
+        }    
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
-                git clone: 'master', url: 'git@github.com:susakom/python3-flask-docker.git'
+                git  'master', url: "git@github.com:susakom/python3-flask-docker.git"
             }
         }
             
