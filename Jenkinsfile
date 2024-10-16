@@ -18,9 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
-               checkout scmGit(
-                   branches: [[name: 'master']],
-                   userRemoteConfigs: [[url: 'https://github.com/susakom/python3-flask-docker.git']])
+             git credentialsId: 'a2c53174-0928-4ce9-a61e-998314c00f20', url: 'https://github.com/susakom/python3-flask-docker.git'
             }
         }
             
