@@ -13,12 +13,14 @@ pipeline {
                 python3 --version
                 pip --version
                 '''
+                echo 'Python and pip versions checked.' 
             }
         }    
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
              git 'https://github.com/susakom/python3-flask-docker.git'
+                echo 'Repository cloned successfully.' 
             }
         }
             
@@ -30,6 +32,7 @@ pipeline {
                 source venv/bin/activate
                 pip install -r requirements.txt
                 '''
+                 echo 'Dependencies installed.' 
             }
         }
         stage('Run Tests') {
@@ -39,6 +42,7 @@ pipeline {
                 source venv/bin/activate
                 python3 -m unittest discover -s . -p "test_app.py"
                 '''
+                echo 'Test compited.' 
             }
         }
         stage('Run Flask Application') {
@@ -48,6 +52,7 @@ pipeline {
                 source venv/bin/activate
                 python3 app.py
                 '''
+                echo 'App run' 
             }
         }
     }
