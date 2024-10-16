@@ -1,4 +1,4 @@
-# susak Jenkinsfile for python project
+// susak Jenkinsfile for python project
 pipeline {
     agent { 
         label 'azure-vm' // Метка узла, на котором будет запускаться билд
