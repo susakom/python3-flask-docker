@@ -6,6 +6,10 @@ pipeline {
      
     
     stages {
+        stage('Sanity Check') {
+            steps {
+                echo 'Starting on agent azure-vm...'
+            }
         stage('Check Python and pip versions') {
             steps {
                 // Проверка версий Python и pip
