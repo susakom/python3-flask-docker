@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
-                git "git@github.com:susakom/python3-flask-docker.git"
+                git branch: 'master', url: 'https://github.com/susakom/python3-flask-docker.git'
             }
         }
             
