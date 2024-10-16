@@ -10,6 +10,16 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/susakom/python3-flask-docker.git'
             }
         }
+           stage('Check Python and pip versions') {
+            steps {
+                // Проверка версий Python и pip
+                sh '''
+                python3 --version
+                pip --version
+                '''
+            }
+        }
+            
         stage('Install dependencies') {
             steps {
                 // Создаём виртуальное окружение и устанавливаем зависимости
