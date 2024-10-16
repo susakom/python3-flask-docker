@@ -39,7 +39,7 @@ pipeline {
                 '''
                  echo 'Dependencies installed.' 
             }
-        }
+         }
         stage('Run Tests') {
             steps {
                 // Активация виртуального окружения и запуск тестов из файла test_app.py
@@ -59,6 +59,6 @@ pipeline {
                 '''
                 echo 'App run' 
             }
-        }
+         }
     }
 }
