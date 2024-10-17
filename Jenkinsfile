@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'azure-vm' }
 
     environment {
         AZURE_VM_IP = '4.233.87.254'
