@@ -61,7 +61,7 @@ pipeline {
             steps {
                 // Запуск Flask приложения
                 sh '''
-                source venv/bin/activate
+                . venv/bin/activate
                 python3 app.py
                 '''
                 echo 'App run' 
