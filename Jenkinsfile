@@ -1,8 +1,7 @@
 // susak Jenkinsfile for python project
 pipeline {
- agent any
+    agent any
 
- 
     environment {
         AZURE_VM_IP = '4.233.87.254' // IP-адрес вашей Azure VM
         SSH_USER = 'susak' // SSH-пользователь для подключения
@@ -10,7 +9,7 @@ pipeline {
     }
 
     stages {
-     stage('Connect to VM') {
+        stage('Connect to VM') {
             steps {
                 script {
                     // Подключение по SSH и выполнение команды на VM
@@ -19,19 +18,17 @@ pipeline {
                     """
                 }
             }
-        }   
-     
-     
-     
-     
-     stage('Sanity Check') {
+        }
+
+        stage('Sanity Check') {
             steps {
                 echo 'Starting on agent azure-vm...'
                 sh 'whoami'  // Показывает, от какого пользователя выполняется
                 sh 'hostname'  // Показывает имя хоста
             }
         }
-          stage('Create Directory') {
+
+        stage('Create Directory') {
             steps {
                 // Создаем директорию в /home/susak
                 sh '''
@@ -53,14 +50,15 @@ pipeline {
                 echo 'Python and pip versions checked.' 
             }
         }    
+
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
-             git 'https://github.com/susakom/python3-flask-docker.git'
+                git 'https://github.com/susakom/python3-flask-docker.git'
                 echo 'Repository cloned successfully.' 
             }
         }
-            
+
         stage('Install dependencies') {
             steps {
                 // Создаём виртуальное окружение и устанавливаем зависимости
@@ -69,9 +67,10 @@ pipeline {
                 source venv/bin/activate
                 pip install -r requirements.txt
                 '''
-                 echo 'Dependencies installed.' 
+                echo 'Dependencies installed.' 
             }
-         }
+        }
+
         stage('Run Tests') {
             steps {
                 // Активация виртуального окружения и запуск тестов из файла test_app.py
@@ -79,9 +78,10 @@ pipeline {
                 source venv/bin/activate
                 python3 -m unittest discover -s . -p "test_app.py"
                 '''
-                echo 'Test compited.' 
+                echo 'Tests completed.' 
             }
         }
+
         stage('Run Flask Application') {
             steps {
                 // Запуск Flask приложения
@@ -91,6 +91,6 @@ pipeline {
                 '''
                 echo 'App run' 
             }
-         }
+        }
     }
 }
