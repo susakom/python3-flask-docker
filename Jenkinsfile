@@ -37,11 +37,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 // Создаём виртуальное окружение и устанавливаем зависимости
-                sh '''
-                sudo python3 -m venv venv
-                source venv/bin/activate
-                sudo pip install -r requirements.txt
-                '''
+                sh 'pip install -r requirements.txt'
                 echo 'Dependencies installed.' 
             }
         }
