@@ -1,13 +1,11 @@
 // susak Jenkinsfile for python project
 pipeline {
     agent any
-
     environment {
         AZURE_VM_IP = '4.233.87.254' // IP-адрес вашей Azure VM
         SSH_USER = 'susak' // SSH-пользователь для подключения
         SSH_KEY = credentials('susak-linux-vm-key') // ID SSH credentials в Jenkins
     }
-
     stages {
         stage('Connect to VM') {
             steps {
@@ -19,7 +17,6 @@ pipeline {
                 }
             }
         }
-
         stage('Sanity Check') {
             steps {
                 echo 'Starting on agent azure-vm...'
@@ -27,7 +24,6 @@ pipeline {
                 sh 'hostname'  // Показывает имя хоста
             }
         }
-
         stage('Create Directory') {
             steps {
                 // Создаем директорию в /home/susak
@@ -39,7 +35,6 @@ pipeline {
                 echo 'Directory created successfully.'
             }
         }
-        
         stage('Check Python and pip versions') {
             steps {
                 // Проверка версий Python и pip
@@ -50,7 +45,6 @@ pipeline {
                 echo 'Python and pip versions checked.' 
             }
         }    
-
         stage('Checkout') {
             steps {
                 // Получаем код из репозитория
@@ -58,7 +52,6 @@ pipeline {
                 echo 'Repository cloned successfully.' 
             }
         }
-
         stage('Install dependencies') {
             steps {
                 // Создаём виртуальное окружение и устанавливаем зависимости
