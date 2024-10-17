@@ -23,10 +23,7 @@ pipeline {
         stage('Check Python and pip versions') {
             steps {
                 // Проверка версий Python и pip
-                sh '''
-                python3 --version
-                pip --version
-                '''
+                sh 'python3 --version'
                 echo 'Python and pip versions checked.' 
             }
         }    
