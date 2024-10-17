@@ -50,7 +50,7 @@ pipeline {
             steps {
                 // Активация виртуального окружения и запуск тестов из файла test_app.py
                 sh '''
-                source venv/bin/activate
+                . venv/bin/activate
                 python3 -m unittest discover -s . -p "test_app.py"
                 '''
                 echo 'Tests completed.' 
