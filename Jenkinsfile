@@ -1,7 +1,42 @@
 // susak Jenkinsfile for python project
 pipeline {
-    agent { label 'azure-vm' }
-     
+ agent any
+
+    environment {
+        AZURE_VM_IP = '4.233.87.254' // IP-адрес вашей Azure VM
+        SSH_USER = 'susak' // SSH-пользователь для подключения
+        SSH_KEY = credentials('susak-linux-vm-key') // ID SSH credentials в Jenkins
+    }
+
+    stages {
+        stage('Connect to VM') {
+            steps {
+                script {
+                    // Подключение по SSH и выполнение команды на VM
+                    sh """
+                        ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${SSH_USER}@${AZURE_VM_IP} 'echo "Connected to VM"'
+                    """
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     
     stages {
         stage('Sanity Check') {
