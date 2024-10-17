@@ -2,6 +2,7 @@
 pipeline {
  agent any
 
+ 
     environment {
         AZURE_VM_IP = '4.233.87.254' // IP-адрес вашей Azure VM
         SSH_USER = 'susak' // SSH-пользователь для подключения
