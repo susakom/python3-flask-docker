@@ -7,6 +7,8 @@ pipeline {
         stage('Sanity Check') {
             steps {
                 echo 'Starting on agent azure-vm...'
+                sh 'whoami'  // Показывает, от какого пользователя выполняется
+                sh 'hostname'  // Показывает имя хоста
             }
         }
         stage('Check Python and pip versions') {
