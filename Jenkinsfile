@@ -4,7 +4,7 @@ pipeline {
     environment {
         AZURE_VM_IP = '4.233.87.254' // IP-адрес вашей Azure VM
         SSH_USER = 'susak' // SSH-пользователь для подключения
-        SSH_KEY = credentials('susak-linux-vm-key') // ID SSH credentials в Jenkins
+        SSH_KEY = credentials('susak-linux-vm') // ID SSH credentials в Jenkins
     }
     stages {
         stage('Connect to VM') {
