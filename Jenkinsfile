@@ -10,7 +10,7 @@ pipeline {
     }
 
     stages {
-        stage('Connect to VM') {
+     stage('Connect to VM') {
             steps {
                 script {
                     // Подключение по SSH и выполнение команды на VM
@@ -19,28 +19,12 @@ pipeline {
                     """
                 }
             }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    stages {
-        stage('Sanity Check') {
+        }   
+     
+     
+     
+     
+     stage('Sanity Check') {
             steps {
                 echo 'Starting on agent azure-vm...'
                 sh 'whoami'  // Показывает, от какого пользователя выполняется
