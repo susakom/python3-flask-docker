@@ -11,6 +11,18 @@ pipeline {
                 sh 'hostname'  // Показывает имя хоста
             }
         }
+          stage('Create Directory') {
+            steps {
+                // Создаем директорию в /home/susak
+                sh '''
+                echo "Creating directory /home/susak/test_directory..."
+                mkdir -p /home/susak/test_directory
+                ls -l /home/susak
+                '''
+                echo 'Directory created successfully.'
+            }
+        }
+        
         stage('Check Python and pip versions') {
             steps {
                 // Проверка версий Python и pip
