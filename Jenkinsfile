@@ -1,9 +1,7 @@
 // susak Jenkinsfile for python project
 pipeline {
     agent { label 'azure-vm' }
-   
     stages {
-        
         stage('Sanity Check') {
             steps {
                 echo 'Starting on agent azure-vm...'
