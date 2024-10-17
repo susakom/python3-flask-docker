@@ -1,4 +1,4 @@
-pipeline 
+pipeline {
     agent { label 'azure-vm' }
 
     environment {
@@ -18,5 +18,5 @@ pipeline
                 }
             }
         }
-    
-
+    }
+}
