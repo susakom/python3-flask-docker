@@ -62,7 +62,7 @@ pipeline {
                 // Запуск Flask приложения
                 sh '''
                 . venv/bin/activate
-                nohup python3 app.py &
+                nohup python3 app.py > flask.log 2>&1 &
                 '''
                 echo 'App run' 
             }
