@@ -1,6 +1,6 @@
 # Python 3 Flask Docker
 
-Пример Docker-контейнера c веб-приложением на базе Flask для Python 3.
+Пример Docker-контейнера c веб-приложением на базе Flask для Python 3.   
 
 Построен на стандартном образе Python 3 Docker image с использованием Alpine Linux, подробнее https://hub.docker.com/_/python/
 
